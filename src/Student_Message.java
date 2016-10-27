@@ -30,6 +30,10 @@ public class Student_Message {
 
     public double final_grade;
 
+    public Student_Message(long stu_Id) {
+        this.stu_Id = stu_Id;
+    }
+
     public String getStu_Name() {
         return stu_Name;
     }
