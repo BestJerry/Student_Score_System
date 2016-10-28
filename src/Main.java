@@ -1,6 +1,4 @@
-import com.sun.xml.internal.ws.encoding.fastinfoset.FastInfosetCodec;
-import com.sun.xml.internal.ws.runtime.config.TubelineFeatureReader;
-import sun.util.locale.provider.FallbackLocaleProviderAdapter;
+import Login.Login_Function;
 
 import java.util.Scanner;
 
@@ -25,11 +23,11 @@ public class Main {
 
             switch (choice.charAt(0)){
                 case '1':
-
+                    Login_Function.teacherlogin();
                     flag = false;
                     break;
                 case '2':
-
+                    Login_Function.studentlogin();
                     flag = false;
                     break;
                 case '3':

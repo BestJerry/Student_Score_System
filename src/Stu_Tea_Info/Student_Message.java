@@ -1,3 +1,4 @@
+package Stu_Tea_Info;
 
 /**
  * Created by jerry on 16-10-27.
@@ -36,6 +37,14 @@ public class Student_Message {
 
     public String getStu_Name() {
         return stu_Name;
+    }
+
+    public Student_Message(){
+    }
+
+    public Student_Message(String stu_Name, long stu_Id) {
+        this.stu_Name = stu_Name;
+        this.stu_Id = stu_Id;
     }
 
     public void setStu_Name(String stu_Name) {
@@ -136,7 +145,7 @@ public class Student_Message {
 
     @Override
     public String toString() {
-        return "Student_Message{" +
+        return "Stu_Tea_Info.Student_Message{" +
                 "stu_Name='" + stu_Name + '\'' +
                 ", stu_Id=" + stu_Id +
                 ", frist_attend_grade=" + frist_attend_grade +
