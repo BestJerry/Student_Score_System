@@ -1,9 +1,11 @@
 package Stu_Tea_Info;
 
+import java.io.Serializable;
+
 /**
  * Created by jerry on 16-10-27.
  */
-public class Student_Message {
+public class Student_Message implements Serializable{
 
     public String stu_Name;
 

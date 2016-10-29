@@ -1,15 +1,17 @@
 package Stu_Tea_Info;
 
+import java.io.Serializable;
+
 /**
  * Created by jerry on 16-10-28.
  */
-public class Teacher_Message {
+public class Teacher_Message implements Serializable {
 
     public String teacher_name;
 
-    public int teacher_key;
+    public String teacher_key;
 
-    public Teacher_Message(String teacher_name, int teacher_key) {
+    public Teacher_Message(String teacher_name, String teacher_key) {
         this.teacher_name = teacher_name;
         this.teacher_key = teacher_key;
     }
@@ -26,11 +28,13 @@ public class Teacher_Message {
         this.teacher_name = teacher_name;
     }
 
-    public int getTeacher_key() {
+    public String getTeacher_key() {
         return teacher_key;
     }
 
-    public void setTeacher_key(int teacher_key) {
+    public void setTeacher_key(String teacher_key) {
         this.teacher_key = teacher_key;
     }
+
+
 }

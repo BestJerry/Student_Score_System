@@ -3,11 +3,15 @@ package Menu;
 import com.sun.javafx.css.parser.Css2Bin;
 import com.sun.org.apache.xpath.internal.WhitespaceStrippingElementMatcher;
 
+import java.io.Serializable;
 import java.util.Scanner;
 /**
  * Created by jerry on 16-10-28.
  */
-public class Teacher_Menu {
+public class Teacher_Menu implements Serializable{
+
+    public Teacher_Menu() {
+    }
 
     public static void show(){
 

@@ -2,13 +2,17 @@ package Menu;
 
 import Stu_Tea_Info.Student_Message;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 
 /**
  * Created by jerry on 16-10-28.
  */
-public class Student_Menu extends Student_Message{
+public class Student_Menu extends Student_Message {
+
+    public Student_Menu() {
+    }
 
     public void show(Student_Message student_message){
 
