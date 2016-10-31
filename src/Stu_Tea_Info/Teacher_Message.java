@@ -7,9 +7,9 @@ import java.io.Serializable;
  */
 public class Teacher_Message implements Serializable {
 
-    public String teacher_name;
+    private String teacher_name;
 
-    public String teacher_key;
+    private String teacher_key;
 
     public Teacher_Message(String teacher_name, String teacher_key) {
         this.teacher_name = teacher_name;

@@ -8,15 +8,15 @@ import java.io.*;
 /**
  * Created by jerry on 16-10-29.
  */
-public class Creat_Teacher_File implements Serializable{
+public class Create_Teacher_File {
 
     public File teacher_Information ;
 
-    public Creat_Teacher_File() throws FileNotFoundException {
+    public Create_Teacher_File() throws FileNotFoundException {
         teacher_Information = new File("teacher_message.txt");
     }
 
-    public void  creatFile(){
+    public void  createFile(){
 
         try {
             if(!teacher_Information.exists()){
@@ -24,7 +24,7 @@ public class Creat_Teacher_File implements Serializable{
                 Teacher_Message teacher_message = new Teacher_Message("Jerry","123456");
                 try (
                         ObjectOutputStream output = new ObjectOutputStream
-                                (new FileOutputStream(teacher_Information))
+                                (new FileOutputStream(teacher_Information,true))
                         ){
                         output.writeObject(teacher_message);
                 }

@@ -7,31 +7,31 @@ import java.io.Serializable;
  */
 public class Student_Message implements Serializable{
 
-    public String stu_Name;
+    private String stu_Name;
 
-    public long stu_Id;
+    private long stu_Id;
 
-    public int frist_attend_grade;
+    private int first_attend_grade;
 
-    public int second_attend_grade;
+    private int second_attend_grade;
 
-    public int third_attend_grade;
+    private int third_attend_grade;
 
-    public int first_test_grade;
+    private int first_test_grade;
 
-    public int second_test_grade;
+    private int second_test_grade;
 
-    public int third_test_grade;
+    private int third_test_grade;
 
-    public int first_homework_grade;
+    private int first_homework_grade;
 
-    public int second_homework_grade;
+    private int second_homework_grade;
 
-    public int third_homework_grade;
+    private int third_homework_grade;
 
-    public int final_test_grade;
+    private int final_test_grade;
 
-    public double final_grade;
+    private double final_grade;
 
     public Student_Message(long stu_Id) {
         this.stu_Id = stu_Id;
@@ -49,6 +49,8 @@ public class Student_Message implements Serializable{
         this.stu_Id = stu_Id;
     }
 
+
+
     public void setStu_Name(String stu_Name) {
         this.stu_Name = stu_Name;
     }
@@ -62,11 +64,11 @@ public class Student_Message implements Serializable{
     }
 
     public int getFrist_attend_grade() {
-        return frist_attend_grade;
+        return first_attend_grade;
     }
 
     public void setFrist_attend_grade(int frist_attend_grade) {
-        this.frist_attend_grade = frist_attend_grade;
+        this.first_attend_grade = frist_attend_grade;
     }
 
     public int getSecond_attend_grade() {
@@ -147,21 +149,20 @@ public class Student_Message implements Serializable{
 
     @Override
     public String toString() {
-        return "Stu_Tea_Info.Student_Message{" +
-                "stu_Name='" + stu_Name + '\'' +
-                ", stu_Id=" + stu_Id +
-                ", frist_attend_grade=" + frist_attend_grade +
-                ", second_attend_grade=" + second_attend_grade +
-                ", third_attend_grade=" + third_attend_grade +
-                ", first_test_grade=" + first_test_grade +
-                ", second_test_grade=" + second_test_grade +
-                ", third_test_grade=" + third_test_grade +
-                ", first_homework_grade=" + first_homework_grade +
-                ", second_homework_grade=" + second_homework_grade +
-                ", third_homework_grade=" + third_homework_grade +
-                ", final_test_grade=" + final_test_grade +
-                ", final_grade=" + final_grade +
-                '}';
+        return
+                "学生姓名：" + stu_Name + " " +
+                "学号：" + stu_Id +"\n"+
+                "第一次课堂点名：" + first_attend_grade +" " +
+                "第二次课堂点名：" + second_attend_grade +" " +
+                "第三次课堂点名：" + third_attend_grade +"\n"+
+                "第一次课堂测试：" + first_test_grade +" " +
+                "第二次课堂测试：" + second_test_grade +" " +
+                "第三次课堂测试：" + third_test_grade +"\n"+
+                "第一次课后作业：" + first_homework_grade +" " +
+                "第二次课后作业：" + second_homework_grade +" " +
+                "第三次课后作业：" + third_homework_grade +"\n"+
+                "期末测试：" + final_test_grade +" " +
+                "总成绩：" + final_grade +"\n";
     }
 
     public void setFinal_grade() {

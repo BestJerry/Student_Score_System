@@ -1,28 +1,31 @@
 import Login.Login_Function;
-import Utility.Creat_Teacher_File;
+import Utility.Create_Student_File;
+import Utility.Create_Teacher_File;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.Scanner;
 
 
 /**
  * Created by jerry on 16-10-27.
  */
-public class Main implements Serializable{
+public class Main {
 
     public static void  main(String[] args) throws FileNotFoundException {
 
-        Creat_Teacher_File creat_teacher_file = new Creat_Teacher_File();
-        creat_teacher_file.creatFile();
+        Create_Teacher_File create_teacher_file = new Create_Teacher_File();
+        create_teacher_file.createFile();
+
+        Create_Student_File create_student_file = new Create_Student_File();
+        create_student_file.createFile();
 
         Scanner input = new Scanner(System.in);
         System.out.println("学生成绩管理系统\n");
         System.out.println("1.教师登陆\n");
         System.out.println("2.学生登陆\n");
-        System.out.println("3.退出系统");
-
+        System.out.println("3.退出系统\n");
+        System.out.println("请输入对应功能的标号，按回车键结束：");
         boolean flag = true;
         while(flag){
             String choice = input.next();

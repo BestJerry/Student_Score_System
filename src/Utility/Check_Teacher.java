@@ -7,7 +7,7 @@ import java.io.*;
 /**
  * Created by jerry on 16-10-29.
  */
-public class Check_Teacher implements Serializable{
+public class Check_Teacher {
 
     public static boolean check_teacher(String name, String key) throws IOException, ClassNotFoundException {
         try(

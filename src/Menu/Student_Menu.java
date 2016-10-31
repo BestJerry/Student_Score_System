@@ -14,11 +14,11 @@ public class Student_Menu extends Student_Message {
     public Student_Menu() {
     }
 
-    public void show(Student_Message student_message){
+    public static void show(){
 
         System.out.println("1.查询成绩");
         System.out.println("2.退出系统");
-        System.out.println("请输入对应功能的标号：");
+        System.out.println("请输入对应功能的标号，按回车键结束：");
         Scanner input = new Scanner(System.in);
         String choice = input.next();
         boolean flag = true;
