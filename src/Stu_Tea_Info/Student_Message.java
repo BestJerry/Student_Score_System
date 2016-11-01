@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by jerry on 16-10-27.
  */
-public class Student_Message implements Serializable{
+public class Student_Message implements Serializable {
 
     private String stu_Name;
 
@@ -41,14 +41,13 @@ public class Student_Message implements Serializable{
         return stu_Name;
     }
 
-    public Student_Message(){
+    public Student_Message() {
     }
 
     public Student_Message(String stu_Name, long stu_Id) {
         this.stu_Name = stu_Name;
         this.stu_Id = stu_Id;
     }
-
 
 
     public void setStu_Name(String stu_Name) {
@@ -151,23 +150,23 @@ public class Student_Message implements Serializable{
     public String toString() {
         return
                 "学生姓名：" + stu_Name + " " +
-                "学号：" + stu_Id +"\n"+
-                "第一次课堂点名：" + first_attend_grade +" " +
-                "第二次课堂点名：" + second_attend_grade +" " +
-                "第三次课堂点名：" + third_attend_grade +"\n"+
-                "第一次课堂测试：" + first_test_grade +" " +
-                "第二次课堂测试：" + second_test_grade +" " +
-                "第三次课堂测试：" + third_test_grade +"\n"+
-                "第一次课后作业：" + first_homework_grade +" " +
-                "第二次课后作业：" + second_homework_grade +" " +
-                "第三次课后作业：" + third_homework_grade +"\n"+
-                "期末测试：" + final_test_grade +" " +
-                "总成绩：" + final_grade +"\n";
+                        "学号：" + stu_Id + "\n" +
+                        "第一次课堂点名：" + first_attend_grade + " " +
+                        "第二次课堂点名：" + second_attend_grade + " " +
+                        "第三次课堂点名：" + third_attend_grade + "\n" +
+                        "第一次课堂测试：" + first_test_grade + " " +
+                        "第二次课堂测试：" + second_test_grade + " " +
+                        "第三次课堂测试：" + third_test_grade + "\n" +
+                        "第一次课后作业：" + first_homework_grade + " " +
+                        "第二次课后作业：" + second_homework_grade + " " +
+                        "第三次课后作业：" + third_homework_grade + "\n" +
+                        "期末测试：" + final_test_grade + " " +
+                        "总成绩：" + final_grade + "\n";
     }
 
     public void setFinal_grade() {
-        this.final_grade = this.getFrist_attend_grade()*0.01+(this.getSecond_attend_grade()+this.getThird_attend_grade())*0.02+
-                (this.getFirst_test_grade()+this.getSecond_test_grade())*0.07+this.getThird_test_grade()*0.06+(this.getFirst_homework_grade()+
-        this.getSecond_homework_grade())*0.08+this.getThird_homework_grade()*0.09+this.getFinal_test_grade()*0.5;
+        this.final_grade = this.getFrist_attend_grade() * 0.01 + (this.getSecond_attend_grade() + this.getThird_attend_grade()) * 0.02 +
+                (this.getFirst_test_grade() + this.getSecond_test_grade()) * 0.07 + this.getThird_test_grade() * 0.06 + (this.getFirst_homework_grade() +
+                this.getSecond_homework_grade()) * 0.08 + this.getThird_homework_grade() * 0.09 + this.getFinal_test_grade() * 0.5;
     }
 }

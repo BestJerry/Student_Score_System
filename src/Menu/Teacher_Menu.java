@@ -7,10 +7,11 @@ import com.sun.org.apache.xpath.internal.WhitespaceStrippingElementMatcher;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Scanner;
+
 /**
  * Created by jerry on 16-10-28.
  */
-public class Teacher_Menu extends Teacher_Function{
+public class Teacher_Menu extends Teacher_Function {
 
     public Teacher_Menu() {
     }
@@ -26,21 +27,23 @@ public class Teacher_Menu extends Teacher_Function{
         System.out.println("6.退出系统");
         System.out.println("请输入对应功能的标号，按回车键结束：");
 
-        Teacher_Function teacher_function  = new Teacher_Function();
+        Teacher_Function teacher_function = new Teacher_Function();
         boolean flag = true;
-        String choice = input.next();
 
-        while (flag){
 
-            switch (choice.charAt(0)){
+        while (flag) {
+            String choice = input.next();
+            switch (choice.charAt(0)) {
                 case '1':
                     teacher_function.addStudentScore();
                     flag = false;
                     break;
                 case '2':
+                    teacher_function.deleteStudentScore();
                     flag = false;
                     break;
                 case '3':
+                    teacher_function.editStudentScore();
                     flag = false;
                     break;
                 case '4':
@@ -52,8 +55,8 @@ public class Teacher_Menu extends Teacher_Function{
                     break;
                 case '6':
                     System.exit(0);
-                    default:
-                        System.out.println("您的输入有误，请重新输入：");
+                default:
+                    System.out.println("您的输入有误，请重新输入：");
             }
         }
     }

@@ -14,7 +14,7 @@ public class Student_Menu extends Student_Message {
     public Student_Menu() {
     }
 
-    public static void show(){
+    public static void show() {
 
         System.out.println("1.查询成绩");
         System.out.println("2.退出系统");
@@ -22,15 +22,15 @@ public class Student_Menu extends Student_Message {
         Scanner input = new Scanner(System.in);
         String choice = input.next();
         boolean flag = true;
-        while (flag){
-            switch (choice.charAt(0)){
+        while (flag) {
+            switch (choice.charAt(0)) {
                 case '1':
                     flag = false;
                     break;
                 case '2':
                     System.exit(0);
-                    default:
-                        System.out.println("你的输入有误，请重新输入：");
+                default:
+                    System.out.println("你的输入有误，请重新输入：");
             }
         }
     }
