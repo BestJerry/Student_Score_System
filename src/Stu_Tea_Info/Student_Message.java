@@ -1,6 +1,9 @@
 package Stu_Tea_Info;
 
+import com.sun.xml.internal.ws.runtime.config.TubelineFeatureReader;
+
 import java.io.Serializable;
+import java.util.Comparator;
 
 /**
  * Created by jerry on 16-10-27.
@@ -161,12 +164,17 @@ public class Student_Message implements Serializable {
                         "第二次课后作业：" + second_homework_grade + " " +
                         "第三次课后作业：" + third_homework_grade + "\n" +
                         "期末测试：" + final_test_grade + " " +
-                        "总成绩：" + final_grade + "\n";
+                        "总成绩：" + (int)(final_grade*100)/100.0 + "\n";
     }
 
+
     public void setFinal_grade() {
-        this.final_grade = this.getFrist_attend_grade() * 0.01 + (this.getSecond_attend_grade() + this.getThird_attend_grade()) * 0.02 +
+        this.final_grade = (int)(this.getFrist_attend_grade() * 0.01 + (this.getSecond_attend_grade() + this.getThird_attend_grade()) * 0.02 +
                 (this.getFirst_test_grade() + this.getSecond_test_grade()) * 0.07 + this.getThird_test_grade() * 0.06 + (this.getFirst_homework_grade() +
-                this.getSecond_homework_grade()) * 0.08 + this.getThird_homework_grade() * 0.09 + this.getFinal_test_grade() * 0.5;
+                this.getSecond_homework_grade()) * 0.08 + this.getThird_homework_grade() * 0.09 + this.getFinal_test_grade() * 0.5)*100/100.0;
+
+
     }
+
+
 }

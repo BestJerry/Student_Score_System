@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * Created by jerry on 16-10-28.
  */
 public class ReadAndWrite {
-    public void readStudentFile(ArrayList<Student_Message> list) throws IOException, ClassNotFoundException {
+    public ArrayList readStudentFile(ArrayList<Student_Message> list) throws IOException, ClassNotFoundException {
 
         try (
                 ObjectInputStream inputStream = new ObjectInputStream
@@ -22,6 +22,7 @@ public class ReadAndWrite {
             list = (ArrayList<Student_Message>) inputStream.readObject();
 
         }
+        return list;
     }
 
 }

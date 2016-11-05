@@ -4,18 +4,24 @@ import Menu.Teacher_Menu;
 import Stu_Tea_Info.Student_Message;
 import Stu_Tea_Info.Teacher_Message;
 import Utility.ReadAndWrite;
+import Utility.ScoreComparator;
+import com.sun.xml.internal.bind.v2.runtime.reflect.TransducedAccessor;
+import com.sun.xml.internal.ws.encoding.fastinfoset.FastInfosetCodec;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import com.sun.xml.internal.ws.runtime.config.TubelineFeatureReader;
 import jdk.nashorn.internal.ir.CaseNode;
 import jdk.nashorn.internal.ir.Flags;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /**
  * Created by jerry on 16-10-28.
  */
-public class Teacher_Function extends Student_Message {
+public class Teacher_Function extends Student_Message{
 
 
     public void addStudentScore() throws IOException, ClassNotFoundException {
@@ -483,7 +489,10 @@ public class Teacher_Function extends Student_Message {
         Scanner input = new Scanner(System.in);
         ArrayList<Student_Message> list = new ArrayList<>();
         ReadAndWrite readAndWrite = new ReadAndWrite();
-        readAndWrite.readStudentFile(list);
+        list = readAndWrite.readStudentFile(list);
+        /*for(Student_Message student_message : list){
+            System.out.println(student_message.getFinal_grade());
+        }*/
         System.out.println("请选择您要查看的统计项：");
         System.out.print("1.总成绩排序\n" +
                 "2.总成绩平均值\n" +
@@ -493,24 +502,112 @@ public class Teacher_Function extends Student_Message {
                 "6.良好率\n" +
                 "7.不及格率\n");
         boolean flag = true;
+
         while (flag) {
             String choice = input.next();
             switch (choice) {
                 case "1":
+                   Collections.sort(list, new ScoreComparator());
+                    for (Student_Message student_message : list) {
+                        System.out.println(student_message.getStu_Name() + "   " + student_message.getFinal_grade());
+                    }
+                    System.out.println("若想返回上一级请输入\"back\"");
+
+                    while (flag) {
+                        String word = input.next();
+                        if (word.matches("back")) {
+                            Teacher_Menu.show();
+                            flag = false;
+                        } else {
+                            System.out.println("您的输入有误，请重新输入。");
+                        }
+                    }
+                    flag = false;
                     break;
                 case "2":
+                    System.out.printf("%.2f\n", showaveragescore(list));
+                    System.out.println("若想返回上一级请输入\"back\"");
+
+                    while (flag) {
+                        String word = input.next();
+                        if (word.matches("back")) {
+                            Teacher_Menu.show();
+                            flag = false;
+                        } else {
+                            System.out.println("您的输入有误，请重新输入。");
+                        }
+                    }
+                    flag = false;
                     break;
                 case "3":
+                    System.out.println(findmaxscore(list));
+                    System.out.println("若想返回上一级请输入\"back\"");
+                    while (flag) {
+                        String word = input.next();
+                        if (word.matches("back")) {
+                            Teacher_Menu.show();
+                            flag = false;
+                        } else {
+                            System.out.println("您的输入有误，请重新输入。");
+                        }
+                    }
+                    flag = false;
                     break;
                 case "4":
-
+                    System.out.println(findminscore(list));
+                    System.out.println("若想返回上一级请输入\"back\"");
+                    while (flag) {
+                        String word = input.next();
+                        if (word.matches("back")) {
+                            Teacher_Menu.show();
+                            flag = false;
+                        } else {
+                            System.out.println("您的输入有误，请重新输入。");
+                        }
+                    }
+                    flag = false;
                     break;
                 case "5":
+                    System.out.printf("%.2f%%\n", showdifferentdata(list, 5));
+                    System.out.println("若想返回上一级请输入\"back\"");
+                    while (flag) {
+                        String word = input.next();
+                        if (word.matches("back")) {
+                            Teacher_Menu.show();
+                            flag = false;
+                        } else {
+                            System.out.println("您的输入有误，请重新输入。");
+                        }
+                    }
+                    flag = false;
                     break;
                 case "6":
-
+                    System.out.printf("%.2f%%\n", showdifferentdata(list, 6));
+                    System.out.println("若想返回上一级请输入\"back\"");
+                    while (flag) {
+                        String word = input.next();
+                        if (word.matches("back")) {
+                            Teacher_Menu.show();
+                            flag = false;
+                        } else {
+                            System.out.println("您的输入有误，请重新输入。");
+                        }
+                    }
+                    flag = false;
                     break;
                 case "7":
+                    System.out.printf("%.2f%%\n", showdifferentdata(list, 7));
+                    System.out.println("若想返回上一级请输入\"back\"");
+                    while (flag) {
+                        String word = input.next();
+                        if (word.matches("back")) {
+                            Teacher_Menu.show();
+                            flag = false;
+                        } else {
+                            System.out.println("您的输入有误，请重新输入。");
+                        }
+                    }
+                    flag = false;
                     break;
                 default:
                     System.out.println("您的输入有误，请重新输入。");
@@ -540,7 +637,8 @@ public class Teacher_Function extends Student_Message {
         return false;
     }
 
-    public double findmaxscore(ArrayList<Student_Message> list) {
+
+    public static double findmaxscore(ArrayList<Student_Message> list) {
         double max = list.get(1).getFinal_grade();
         for (Student_Message student_message : list) {
             if (student_message.getFinal_grade() > max) {
@@ -550,7 +648,7 @@ public class Teacher_Function extends Student_Message {
         return max;
     }
 
-    public double findminscore(ArrayList<Student_Message> list) {
+    public static double findminscore(ArrayList<Student_Message> list) {
         double min = list.get(1).getFinal_grade();
         for (Student_Message student_message : list) {
             if (student_message.getFinal_grade() < min) {
@@ -559,4 +657,54 @@ public class Teacher_Function extends Student_Message {
         }
         return min;
     }
+
+    public static double showdifferentdata(ArrayList<Student_Message> list, int choice) {
+
+        double count = 0;
+        switch (choice) {
+            case 5:
+                for (Student_Message student_message : list) {
+                    if (student_message.getFinal_grade() >= 90)
+                        count++;
+                }
+                return count / list.size() * 100;
+            case 6:
+                for (Student_Message student_message : list) {
+                    if (student_message.getFinal_grade() >= 80 && student_message.getFinal_grade() < 90)
+                        count++;
+                }
+                return count / list.size() * 100;
+            case 7:
+                for (Student_Message student_message : list) {
+                    if (student_message.getFinal_grade() < 60)
+                        count++;
+                }
+                return count / list.size() * 100;
+        }
+        return 0;
+    }
+
+    public static double showaveragescore(ArrayList<Student_Message> list) {
+        double sum = 0;
+        for (Student_Message student_message : list) {
+            sum += student_message.getFinal_grade();
+        }
+        return sum / list.size();
+    }
+
+    /*public static ArrayList sortlist(ArrayList<Student_Message> list) {
+        Collections.sort(list, new Comparator<Student_Message>() {
+            @Override
+            public int compare(Student_Message o1, Student_Message o2) {
+                if (o1.getFinal_grade() > o2.getFinal_grade())
+                    return 1;
+                else
+                    return 0;
+            }
+        });
+        return list;
+
+    }*/
+
+
 }

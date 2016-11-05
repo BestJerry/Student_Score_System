@@ -51,6 +51,7 @@ public class Teacher_Menu extends Teacher_Function {
                     flag = false;
                     break;
                 case '5':
+                    teacher_function.countStudentScore();
                     flag = false;
                     break;
                 case '6':
