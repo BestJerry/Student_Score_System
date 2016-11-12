@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class Main {
 
-    public static void  main(String[] args) throws FileNotFoundException {
+    public static void  main(String[] args) throws IOException, ClassNotFoundException {
 
         Create_Teacher_File create_teacher_file = new Create_Teacher_File();
         create_teacher_file.createFile();

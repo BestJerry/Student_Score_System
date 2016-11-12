@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Scanner;
 
 import Stu_Tea_Info.*;
+import Utility.Check_Student;
 import Utility.Check_Teacher;
 import com.sun.xml.internal.ws.runtime.config.TubelineFeatureReader;
 
@@ -41,18 +42,26 @@ public class Login_Function {
     }
 
 
-    public static void studentlogin() {
+    public static void studentlogin() throws IOException, ClassNotFoundException {
 
         boolean flag = true;
         Scanner input = new Scanner(System.in);
         System.out.println("欢迎学生登陆");
-        System.out.println("请输入你的姓名：");
-        String name = input.next();
-        System.out.println("请输入你的学号：");
-        long stu_Id = input.nextLong();
         while (flag) {
 
-            Student_Menu.show();
+
+            System.out.println("请输入你的姓名：");
+            String name = input.next();
+            System.out.println("请输入你的学号：");
+            long stu_Id = input.nextLong();
+            if(Check_Student.check_student(name,stu_Id)){
+                flag = false;
+                Student_Menu.show(name,stu_Id);
+
+            }
+            else {
+                System.out.println("你的名字或密码输入有误，请重新输入。");
+            }
         }
 
     }
